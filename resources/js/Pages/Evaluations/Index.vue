@@ -53,12 +53,12 @@ async function deleteAdditional() {
         </div>
         <div class="px-5">
             <div class="flex gap-x-3">
-                <PrimaryButton
+                <PrimaryButton v-if="$page.props.auth.user.role === 'user'"
                     @click="() => router.visit(route('evaluations.quiz'))"
                     >+Agregar</PrimaryButton
                 >
                 <a
-                    v-if="$page.props.auth.user.role === 'user'"
+                    v-if="$page.props.auth.user.role === 'admin'"
                     :href="route('evaluations.export.masive')"
                     class="flex justify-center items-center"
                     target="_blank"
@@ -251,7 +251,7 @@ async function deleteAdditional() {
                     </svg>
                 </a>
 
-                <a
+                <a v-if="$page.props.auth.user.role === 'admin'"
                     :href="route('evaluations.export.excel.masive')"
                     class="flex mt-1 justify-center"
                     target="_blank"
@@ -317,6 +317,11 @@ async function deleteAdditional() {
                         <tr
                             class="border-b bg-gray-50 text-left text-xs font-semibold uppercase tracking-wide text-gray-500"
                         >
+                            <th v-if="$page.props.auth.user.role === 'admin'"
+                                class="border-b-2 border-gray-200 bg-gray-100 px-5 py-3 text-xs text-center font-semibold uppercase tracking-wider text-gray-600"
+                            >
+                                Usuario
+                            </th>
                             <th
                                 class="border-b-2 border-gray-200 bg-gray-100 px-5 py-3 text-xs text-center font-semibold uppercase tracking-wider text-gray-600"
                             >
@@ -353,6 +358,10 @@ async function deleteAdditional() {
                             :key="item.id"
                             class="text-gray-700"
                         >
+                        <td v-if="$page.props.auth.user.role === 'admin'"
+                                class="border-b border-gray-200 bg-white px-5 py-5 text-sm text-center min-w-[250px] whitespace-nowrap"
+                            >{{ item.professional.user.name }}
+                        </td>
                             <td
                                 class="border-b border-gray-200 bg-white px-5 py-5 text-sm text-center min-w-[250px] whitespace-nowrap"
                             >

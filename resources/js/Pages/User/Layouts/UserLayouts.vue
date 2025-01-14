@@ -19,7 +19,9 @@ onMounted(() => {
     <!-- end -->
     <!-- main content -->
     
-    <slot />
+    <div class="max-w-screen-xl mx-auto">
+        <slot />
+    </div>
     <!-- end -->
     <!-- footer -->
 

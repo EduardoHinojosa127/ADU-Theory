@@ -24,6 +24,15 @@ class EvaluationController extends Controller
             'evaluations' => $evaluations
         ]);
     }
+
+    public function indexAdmin ()
+    {
+        $evaluations = Evaluation::with('professional.user')->paginate();
+        return Inertia::render('Evaluations/Index', [
+            'evaluations' => $evaluations
+        ]);
+    }
+
     public function quiz() {
         return Inertia::render('Evaluations/Quiz', [
             'sections' => QuestionType::with('questions')->get(),

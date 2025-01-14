@@ -38,6 +38,26 @@ class DatabaseSeeder extends Seeder
             'user_id' => $user->id,
         ]);
 
+        $admin = User::create([
+            'name' => 'admin',
+            'lastname' => 'admin',
+            'role' => 'admin',
+            'email' => 'admin@email.com',
+            'password' => Hash::make('12345678'),
+        ]);
+
+        Professional::create([
+            'country' => 'Perú',
+            'region' => 'Arequipa',
+            'province' => 'Arequipa',
+            'professional_years' => '18',
+            'study_program' => 'Admin',
+            'institution' => 'Admin',
+            'age' => 40,
+            'gender' => 'Masculino',
+            'user_id' => $admin->id,
+        ]);
+
         // Datos de las dimensiones y preguntas
         $dimensions = [
             'Dominio del Contenido' => [

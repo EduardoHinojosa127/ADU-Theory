@@ -20,7 +20,7 @@
         <tbody>
             @foreach ($evaluations as $evaluation)
                 <tr>
-                    <td rowspan="3">{{ $evaluation->id }}</td>
+                    <td rowspan="3">{{ $evaluation->professional->user->name }}</td>
                     <!-- Sumas -->
                     @foreach (range(1, 4) as $dimension)
                         <td>{{ $evaluation->interpretation->get($dimension)['sum'] ?? 'N/A' }}</td>

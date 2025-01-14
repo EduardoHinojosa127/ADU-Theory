@@ -18,6 +18,7 @@ use Inertia\Inertia;
 //user rotues
 
 
+Route::get('/', [DashboardController::class,'index'])->name('home');
 
 
 Route::middleware('auth')->group(function () {
@@ -34,7 +35,6 @@ Route::middleware('auth')->group(function () {
     }));
 
     Route::middleware(['checkrole:admin,user'])->group(function () {
-        Route::get('/', [DashboardController::class,'index'])->name('home');
         Route::get('/evaluaciones', [EvaluationController::class, 'index'])->name('evaluations.index');
         Route::get('/evaluaciones/quiz', [EvaluationController::class, 'quiz'])->name('evaluations.quiz');
         Route::post('/evaluaciones/quiz/crear', [EvaluationController::class, 'store'])->name('evaluations.quiz.store');
@@ -45,9 +45,13 @@ Route::middleware('auth')->group(function () {
         })->name('interpretation');
 
         Route::get('/evaluaciones/exportar/unitatio/{evaluation_id}', [EvaluationController::class, 'export'])->name('evaluations.export');
-        Route::get('/evaluaciones/exportar/masivo', [EvaluationController::class, 'export_masive'])->name('evaluations.export.masive');
         Route::get('/evaluaciones/exportar/excel/{evaluation_id}', [EvaluationController::class, 'exportExcel'])->name('evaluations.export.excel');
+    });
+
+    Route::middleware(['checkrole:admin'])->group(function () {
+        Route::get('/evaluaciones/admin', [EvaluationController::class, 'indexAdmin'])->name('evaluations.index.admin');
         Route::get('/evaluaciones/exportar/excel/masivo/get', [EvaluationController::class, 'exportMassiveExcel'])->name('evaluations.export.excel.masive');        
+        Route::get('/evaluaciones/exportar/masivo', [EvaluationController::class, 'export_masive'])->name('evaluations.export.masive');
     });
 });
 

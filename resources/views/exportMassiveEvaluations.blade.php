@@ -53,6 +53,7 @@
     <table>
         <thead>
             <tr>
+                <th>Usuario</th>
                 <th>Dim. 1</th>
                 <th>Dim. 2</th>
                 <th>Dim. 3</th>
@@ -63,6 +64,9 @@
         <tbody>
             @foreach ($evaluations as $evaluation)
             <tr>
+                <td>
+                    <p>{{ $evaluation->professional->user->name }}</p>
+                </td>
                 <td>
                     <p>{{ $evaluation->interpretation->get(1)['sum'] }}</p>
                     <p>{{ $evaluation->interpretation->get(1)['interpretation'] }}</p>
