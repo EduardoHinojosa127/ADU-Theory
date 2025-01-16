@@ -41,10 +41,10 @@ const cart = computed(() => usePage().props.cart);
                 <div v-else>
                     <Link :href="route('login')" type="button"
                         class="text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
-                    Login</Link>
+                    Iniciar Sesión</Link>
                     <Link :href="route('register')" v-if="canRegister" type="button"
                         class="text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2">
-                    Register</Link>
+                    Registrarse</Link>
 
                 </div>
 

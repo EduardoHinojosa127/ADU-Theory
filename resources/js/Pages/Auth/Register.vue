@@ -279,7 +279,7 @@ const submit = () => {
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                     <!-- Nombre -->
                     <div>
-                        <InputLabel for="name" value="Name" />
+                        <InputLabel for="name" value="Nombre" />
                         <TextInput
                             id="name"
                             type="text"
@@ -321,7 +321,7 @@ const submit = () => {
 
                     <!-- Contraseña -->
                     <div>
-                        <InputLabel for="password" value="Password" />
+                        <InputLabel for="password" value="Contraseña" />
                         <TextInput
                             id="password"
                             type="password"
@@ -339,7 +339,7 @@ const submit = () => {
                     <div>
                         <InputLabel
                             for="password_confirmation"
-                            value="Confirm Password"
+                            value="Confirmar Contraseña"
                         />
                         <TextInput
                             id="password_confirmation"
